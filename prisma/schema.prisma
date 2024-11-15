@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,4 +5,37 @@ generator client {
 datasource db {
   provider = "sqlserver"
   url      = env("DATABASE_URL")
+}
+
+// ABONELİK SİSTEMİ
+model Subscriber {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  status    String    @default("ACTIVE")
+  createdAt DateTime  @default(now())
+  categories SubscriberCategory[]
+
+  @@map("Subscribers")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  description String?
+  createdAt DateTime  @default(now())
+  subscribers SubscriberCategory[]
+
+  @@map("Categories")
+}
+
+model SubscriberCategory {
+  subscriberId Int
+  categoryId   Int
+  subscribedAt DateTime @default(now())
+
+  subscriber Subscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  category   Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([subscriberId, categoryId])
+  @@map("SubscriberCategories")
 }
