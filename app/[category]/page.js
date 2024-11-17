@@ -1,8 +1,6 @@
-// kategoriye göre veri çekme işlemi burada yapılacak
-
-import BlogContent from "../components/blogContent";
 import Link from "next/link";
 import Navbar from "@/app/components/navbar";
+import PaginationComponent from "../components/pagination";
 
 export default async function Category({params}) {
 
@@ -20,7 +18,7 @@ export default async function Category({params}) {
     return (
         <div className="container mx-auto max-w-screen-xl">
             <Navbar elements={jsxElements}></Navbar>
-            <BlogContent contents={contents}></BlogContent>
+            <PaginationComponent contents={contents.categoryData.blogPosts}></PaginationComponent>
         </div>
     );
 }

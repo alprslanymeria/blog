@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+// Belirli category e ait verileri çeker
 export async function GET(request) {
 
     const url = new URL(request.url)
@@ -22,7 +23,9 @@ export async function GET(request) {
           return new Response('Category not found', { status: 404 });
         }
     
-        return new Response(JSON.stringify(categoryData), {
+        const postCount = categoryData.blogPosts.length;
+
+        return new Response(JSON.stringify({categoryData,postCount}), {
           status: 200,
           headers: { 'Content-Type': 'application/json' },
         });
