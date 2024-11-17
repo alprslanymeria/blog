@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link";
 
 export default function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,9 +19,9 @@ export default function HamburgerMenu() {
         className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
       >
         {isOpen ? (
-          <i class="lni lni-xmark text-2xl text-black"></i>
+          <i className="lni lni-xmark text-2xl text-black"></i>
         ) : (
-          <i class="lni lni-menu-hamburger-1 text-2xl text-black"></i>
+          <i className="lni lni-menu-hamburger-1 text-2xl text-black"></i>
         )}
 
       </button>
@@ -34,34 +35,25 @@ export default function HamburgerMenu() {
           onClick={toggleMenu}
           className="mb-4 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none"
         >
-          <i class="lni lni-xmark text-2xl text-black"></i>
+          <i className="lni lni-xmark text-2xl text-black"></i>
         </button>
 
         <nav>
           <ul className="space-y-4">
             <li>
-              <a href="#" className="hover:text-gray-400">
-                Home
-              </a>
+              <Link href="#" className="hover:text-gray-400">Home</Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
-                About
-              </a>
+              <Link href="#" className="hover:text-gray-400">About</Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
-                Services
-              </a>
+              <Link href="#" className="hover:text-gray-400">Services</Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-400">
-                Contact
-              </a>
+              <Link href="#" className="hover:text-gray-400">Contact</Link>
             </li>
           </ul>
         </nav>
-
       </div>
     </div>
   )
