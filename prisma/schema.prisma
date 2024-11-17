@@ -16,3 +16,39 @@ model Subscriber {
 
   @@map("Subscribers")
 }
+
+// BLOG POST
+model BlogPost {
+  id        Int     @id @default(autoincrement())
+  imageUrl  String  @db.VarChar(500)
+  header    String  @db.VarChar(255)
+  summary   String  @db.Text
+  content   String  @db.Text
+  author    String  @db.VarChar(255)
+  createdAt DateTime @default(now())
+  categoryId Int
+  category  Category @relation(fields: [categoryId], references: [id])
+  tags      BlogPostTag[]
+}
+
+model Category {
+  id          Int        @id @default(autoincrement())
+  name        String
+  description String?
+  blogPosts   BlogPost[]
+}
+
+model Tag {
+  id    Int        @id @default(autoincrement())
+  name  String     @unique
+  posts BlogPostTag[]
+}
+
+model BlogPostTag {
+  blogPostId Int
+  tagId      Int
+  blogPost   BlogPost @relation(fields: [blogPostId], references: [id])
+  tag        Tag      @relation(fields: [tagId], references: [id])
+
+  @@id([blogPostId, tagId])
+}

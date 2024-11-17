@@ -29,7 +29,7 @@ export default function HamburgerMenu() {
       <div
         className={`fixed top-0 left-0 h-full bg-gray-800 text-white w-64 p-4 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300`}
+        } transition-transform duration-300 z-50`}
       >
         <button
           onClick={toggleMenu}
