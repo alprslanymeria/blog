@@ -61,3 +61,47 @@ model CapsImage {
 
   @@map("CapsImages")
 }
+
+
+// PROJE SİSTEMİ
+model Project {
+  id          Int            @id @default(autoincrement())
+  name        String
+  summary     String         @db.Text
+  content     String         @db.Text
+  images      ProjectImage[]
+  technologies ProjectTechnology[]
+  links       ProjectLink[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model ProjectImage {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  url       String
+  project   Project  @relation(fields: [projectId], references: [id])
+}
+
+model Technology {
+  id         Int                @id @default(autoincrement())
+  name       String
+  icon       String
+  projects   ProjectTechnology[]
+}
+
+model ProjectTechnology {
+  id          Int       @id @default(autoincrement())
+  projectId   Int
+  technologyId Int
+  project     Project   @relation(fields: [projectId], references: [id])
+  technology  Technology @relation(fields: [technologyId], references: [id])
+}
+
+model ProjectLink {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  name      String
+  url       String
+  project   Project  @relation(fields: [projectId], references: [id])
+}
