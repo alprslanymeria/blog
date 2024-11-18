@@ -10,8 +10,9 @@ export const metadata = {
 export default async function RootLayout({ children , params}) {
 
   const headersList = await headers();
-  const currentUrl = headersList.get('x-url') || ''; // İsteğin tam URL'si
-  const isCapsRoute = currentUrl.includes('/caps'); // `/caps` kontrolü
+  const currentUrl = headersList.get('x-url') || '';
+  const isCapsRoute = currentUrl.includes('/caps');
+  const isPortfolioRoute = currentUrl.includes('/portfolio');
 
   return (
     <html lang="en">
@@ -20,7 +21,7 @@ export default async function RootLayout({ children , params}) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="data:,"></link>
       </head>
-      <body style={isCapsRoute ? { backgroundColor: '#1F222A', color: 'white' } : {}}>
+      <body style={isCapsRoute || isPortfolioRoute ? { backgroundColor: '#1F222A', color: 'white' } : {}}>
         {children}
       </body>
     </html>
