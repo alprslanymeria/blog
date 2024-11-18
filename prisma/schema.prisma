@@ -52,3 +52,12 @@ model BlogPostTag {
 
   @@id([blogPostId, tagId])
 }
+
+// CAPS RESİMLERİ
+model CapsImage {
+  id          Int       @id @default(autoincrement())
+  imageUrl    String    @db.VarChar(500)
+  createdAt   DateTime  @default(now())
+
+  @@map("CapsImages")
+}
