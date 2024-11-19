@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import BlogContent from './blogContent';
 
 
-export default function PaginationComponent({ contents }) {
+export default function PaginationComponent({ contents, category }) {
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 6;
 
@@ -20,7 +20,7 @@ export default function PaginationComponent({ contents }) {
     return (
         <div>
             
-            <BlogContent contents={currentContents}></BlogContent> 
+            <BlogContent category={category} contents={currentContents}></BlogContent> 
             
             <Stack spacing={2} mt={2} mb={2} direction={'row'} justifyContent={'center'}>
                 <Pagination

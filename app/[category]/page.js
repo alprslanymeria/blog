@@ -18,7 +18,7 @@ export default async function Category({params}) {
     return (
         <div className="container mx-auto max-w-screen-xl">
             <Navbar elements={jsxElements}></Navbar>
-            <PaginationComponent contents={contents.categoryData.blogPosts}></PaginationComponent>
+            <PaginationComponent category={category} contents={contents.categoryData.blogPosts}></PaginationComponent>
         </div>
     );
 }

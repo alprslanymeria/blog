@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BlogContent({ contents }) {
+export default function BlogContent({ contents , category}) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {contents.map((post) => (
         <Link
           key={post.id}
-          href={`/blog/${post.id}`}
+          href={`/${category}/${post.id}`}
           className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105"
         >
           <div>

@@ -15,13 +15,13 @@ export default async function RootLayout({ children , params}) {
   const isPortfolioRoute = currentUrl.includes('/portfolio');
 
   return (
-    <html lang="en">
+    <html lang="en" style={isCapsRoute || isPortfolioRoute ? { backgroundColor: '#1F222A', color: 'white' } : {backgroundColor: 'white'}}>
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="data:,"></link>
       </head>
-      <body style={isCapsRoute || isPortfolioRoute ? { backgroundColor: '#1F222A', color: 'white' } : {}}>
+      <body>
         {children}
       </body>
     </html>
