@@ -1,13 +1,15 @@
-// sidebar ve article componentlerini içerecek
-
 import Article from "./article";
 import Sidebar from "./sidebar";
 
-export default function Container() {
+export default function Container({ post }) {
     return (
-        <>
-            <Article></Article>
-            <Sidebar></Sidebar>
-        </>
+        <div className="flex flex-col md:flex-row gap-6 my-8">
+            <div className="md:flex-[3]">
+                <Article post={post} />
+            </div>
+            <div className="md:flex-[1]">
+                <Sidebar />
+            </div>
+        </div>
     );
 }

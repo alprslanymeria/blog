@@ -8,14 +8,18 @@ export async function GET(request) {
     const postId = url.searchParams.get("id");
 
     try {
-        
+
         const blogPostData = await prisma.blogPost.findFirst({
             where: {
                 id: parseInt(postId),
             },
             include: {
                 category: true,
-                tags: true,
+                tags: {
+                    include: {
+                        tag: true,
+                    },
+                },
             },
         });
 

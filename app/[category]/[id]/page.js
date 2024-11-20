@@ -38,7 +38,7 @@ export default async function Detail({ params }) {
 
             <div className="container mx-auto max-w-screen-xl px-4">
                 <h1 className="text-center">{header}</h1>
-                <Container />
+                <Container post={post}/>
                 <Share />
                 <Comment />
             </div>
