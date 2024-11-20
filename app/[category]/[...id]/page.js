@@ -8,6 +8,7 @@ import Link from "next/link";
 export default async function Detail({ params }) {
     
     const id = (await params).id
+    const category = (await params).category
     let data = await fetch(`http://localhost:3000/api/blog/id?id=${id}`)
     let post = await data.json()
     let imageUrl = post.imageUrl
@@ -40,7 +41,7 @@ export default async function Detail({ params }) {
                 <h1 className="text-center">{header}</h1>
                 <Container post={post}/>
                 <Share />
-                <Comment />
+                <Comment blogId={id} />
             </div>
         </>
     );
