@@ -34,7 +34,7 @@ export async function createCommentAction(prevState ,queryData) {
 
     const rawFormData = {
         content: queryData.get('content'),
-        avatar: "/images/capsImages/1.jpg",
+        avatar: queryData.get('selectedAvatar'),
         cookieId: "user-1732134772087",
         blogId: parseInt(queryData.get('blogId'), 10),
         parentCommentId: null,

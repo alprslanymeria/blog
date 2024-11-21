@@ -7,6 +7,7 @@ import Link from "next/link";
 
 export default async function Detail({ params }) {
     
+    // POST A AİT BİLGİLER BURADA ÇEKİLİYOR
     const id = (await params).id
     const category = (await params).category
     let data = await fetch(`http://localhost:3000/api/blog/id?id=${id}`)
