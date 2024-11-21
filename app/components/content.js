@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Content() {
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between p-6 space-y-6 md:space-y-0 lg:items-start lg:justify-between">
+    <div className="flex flex-col md:flex-row items-center md:items-start md:justify-evenly p-6 space-y-6 md:space-y-0 lg:items-start lg:justify-evenly">
 
       <div className="max-w-lg text-center md:text-left">
         
@@ -22,10 +22,10 @@ export default function Content() {
             <i className="lni lni-linkedin text-2xl"></i>
           </Link>
           <Link href="https://twitter.com" target="_blank" className="text-blue-400 hover:text-blue-600">
-            <i className="lni lni-x text-2xl"></i>
+            <i className="lni lni-x text-2xl text-blue"></i>
           </Link>
           <Link href="https://github.com/alprslanymeria" target="_blank" className="text-pink-500 hover:text-pink-700">
-            <i className="lni lni-github text-2xl"></i>
+            <i className="lni lni-github text-2xl text-black"></i>
           </Link>
         </div>
 

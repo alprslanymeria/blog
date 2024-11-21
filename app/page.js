@@ -5,12 +5,15 @@ import Subscribe from "./components/subscribe";
 
 export default function Home() {
 
+  const linkClasses = "text-[#FFC96B] font-bold hover:text-gray-500";
+
   const jsxElements = [
-    <nav className="hidden md:flex space-x-4">
-      <Link key="home" href="#" className="hover:text-gray-500">Ana sayfa</Link>
-      <Link key="about" href="#" className="hover:text-gray-500">Hakkımızda</Link>
-      <Link key="services" href="#" className="hover:text-gray-500">Hizmetler</Link>
-      <Link key="contact" href="#" className="hover:text-gray-500">İletişim</Link>
+    <nav className="hidden md:flex space-x-12">
+      <Link key="felsefe" href="/felsefe" className={linkClasses}>Felsefe</Link>
+      <Link key="film" href="/film" className={linkClasses}>Film</Link>
+      <Link key="muzik" href="/music" className={linkClasses}>Müzik</Link>
+      <Link key="yazilim" href="/software" className={linkClasses}>Yazılım</Link>
+      <Link key="kitap" href="/book" className={linkClasses}>Kitap</Link>
     </nav>
   ];
 

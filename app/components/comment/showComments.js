@@ -1,9 +1,3 @@
-// export default function ShowComments({comments}) {
-//     return (
-//         <h1>ShowComments</h1>
-//     );
-// }
-
 export default function ShowComments({ comments }) {
     if (!comments || comments.length === 0) {
         return <p>Bu blog için henüz yorum yapılmamış.</p>;
