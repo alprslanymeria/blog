@@ -6,10 +6,11 @@ import Projects from "../components/projects";
 export default async function Page() {
 
     // PROJE BİLGİLERİ BURADA ÇEKİLİR
+    const linkClasses = "text-[#FFC96B] font-bold hover:text-gray-500 text-2xl underline";
 
     const jsxElements = [
         <nav className="hidden md:flex space-x-4">
-          <Link key="home" href="#" className="hover:text-gray-500">PORTFOLIO</Link>
+          <Link key="home" href="#" className={linkClasses}>PORTFOLIO</Link>
         </nav>
       ];
 

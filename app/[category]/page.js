@@ -4,21 +4,25 @@ import PaginationComponent from "../components/pagination";
 
 export default async function Category({params}) {
 
-    const jsxElements = [
-        <nav className="hidden md:flex space-x-4">
-          <Link key="home" href="#" className="hover:text-gray-500">Ana sayfa</Link>
-        </nav>
-      ];
+  const category = (await params).category.toUpperCase();
+  let contents = [];
 
-    const category = (await params).category
+  let data = await fetch(`http://localhost:3000/api/blog?category=${category}`);
+  if(data.status === 200)
+  contents = await data.json()
 
-    let data = await fetch(`http://localhost:3000/api/blog?category=${category}`);
-    let contents = await data.json()
+  const linkClasses = "text-[#FFC96B] font-bold hover:text-gray-500 text-2xl underline";
 
-    return (
-        <div className="container mx-auto max-w-screen-xl">
-            <Navbar elements={jsxElements}></Navbar>
-            <PaginationComponent category={category} contents={contents.categoryData.blogPosts}></PaginationComponent>
-        </div>
-    );
+  const jsxElements = [
+      <nav className="flex space-x-4">
+        <Link key="home" href="#" className={linkClasses}>{category}</Link>
+      </nav>
+    ];
+
+  return (
+      <div className="container mx-auto max-w-screen-xl">
+          <Navbar elements={jsxElements}></Navbar>
+          <PaginationComponent category={category} contents={contents.categoryData.blogPosts}></PaginationComponent>
+      </div>
+  );
 }

@@ -13,6 +13,9 @@ export default function MakeComment({ blogId }) {
         "/images/capsImages/3.jpg",
         "/images/capsImages/4.jpg",
         "/images/capsImages/5.jpg",
+        "/images/capsImages/6.jpg",
+        "/images/capsImages/7.jpg",
+        "/images/capsImages/8.jpg",
     ];
 
     const [selectedAvatar, setSelectedAvatar] = useState('');
@@ -27,16 +30,11 @@ export default function MakeComment({ blogId }) {
 
     return (
         <div className="p-4 max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-semibold mb-4">Yorum Yap</h2>
-
 
             <Form action={formAction}>
                 {/* Avatar seçimi */}
                 <div className="mb-4">
-                    <label className="block text-lg font-medium mb-2">
-                        Bir avatar seçin:
-                    </label>
-                    <div className="flex justify-center gap-4">
+                    <div className="flex justify-center gap-4 flex-wrap">
                         {avatars.map((avatar, index) => (
                             <div
                                 key={index}
@@ -55,9 +53,6 @@ export default function MakeComment({ blogId }) {
 
                 {/* Yorum kısmı */}
                 <div className="mb-4">
-                    <label htmlFor="content" className="block text-lg font-medium mb-2">
-                        Yorumunuz
-                    </label>
                     <textarea
                         id="content"
                         name="content"
@@ -72,7 +67,7 @@ export default function MakeComment({ blogId }) {
 
                 <button
                     type="submit"
-                    className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                    className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                 >
                     Gönder
                 </button>

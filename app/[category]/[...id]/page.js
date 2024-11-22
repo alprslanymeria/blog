@@ -15,17 +15,14 @@ export default async function Detail({ params }) {
     let imageUrl = post.imageUrl
     let header = post.header
 
-    const jsxElements = [
-        <nav className="hidden md:flex space-x-4" key="navbar">
-          <Link href="#" className="hover:text-gray-500">
-            DETAIL
-          </Link>
-        </nav>
-      ]
+    let response = await fetch("http://localhost:3000/api/blog/all");
+    let categories = await response.json();
+
+    const jsxElements = []
 
     return (
         <>
-            <div className="relative w-screen h-[500px]">
+            <div className="relative w-full h-[500px]">
                 <Image
                     src={imageUrl}
                     alt="Blog Görseli"
@@ -39,8 +36,8 @@ export default async function Detail({ params }) {
             </div>
 
             <div className="container mx-auto max-w-screen-xl px-4">
-                <h1 className="text-center">{header}</h1>
-                <Container post={post}/>
+                <h1 className="text-center text-[#FFC96B] text-2xl mt-4 font-bold md:text-4xl">{header}</h1>
+                <Container categories={categories} post={post}/>
                 <Share />
                 <Comment blogId={id} />
             </div>
